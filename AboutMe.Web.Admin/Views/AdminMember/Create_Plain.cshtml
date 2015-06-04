@@ -1,0 +1,65 @@
+﻿
+
+@{
+    ViewBag.Title = "Create_Plain";
+}
+
+
+    <script language="javascript">
+
+        function frmCheck() {
+            alert("여기입니다");
+
+            var f = document.frm01;
+            if (f.ADM_ID.value == '') {
+                alert("관리자 아이디를 입력하세요.");
+                return false;
+            }
+        }
+
+        function selChange(obj_selectbox, sel_index) {
+            alert(obj_selectbox[sel_index].value);
+        }
+    </script>
+
+    @using (Html.BeginForm("Create_Plain", "AdminMember", FormMethod.Post, new { id = "frm01", name = "frm01", onsubmit = "return frmCheck();" }))
+    {
+        @Html.AntiForgeryToken()  //폼 데이터 위조 방지 토큰 생성
+
+
+                            <table>
+                                <tr>
+                                    <td>관리자아이디</td>
+                                    <td><input type="text" name="ADM_ID" /></td>
+                                </tr>
+                                <tr>
+                                    <td>관리자패스워드</td>
+                                    <td><input type="text" name="ADM_PASS" /> <input type="text" name="ADM_PASS_CONFIRM" /></td>
+                                </tr>
+                                <tr>
+                                    <td>관리자 이름</td>
+                                    <td><input type="text" name="ADM_NAME" /></td>
+                                </tr>
+                                <tr>
+                                    <td>관리자 부서</td>
+                                    <td>
+                                        @Html.DropDownList("ADM_DEPT", ViewData["ADM_DEPT"] as SelectListItem[], new { onchange = "selChange(this,this.selectedIndex)" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>연애횟수</td>
+                                    <td><input type="text" name="POINT" /></td>
+                                </tr>
+                                <tr>
+                                    <!--
+                                 <td>사진</td>
+                                    <td><input type="file" name="ADM_PHOTO" /></td>
+                                </tr>
+                                        -->
+                                <tr>
+                                    <td>저장</td>
+                                    <td><input type="submit" value="Create" /></td>
+                                </tr>
+
+                            </table>
+    }

@@ -1,0 +1,119 @@
+﻿@model IEnumerable<AboutMe.Domain.Entity.AdminEtc.SP_ADM_ADMIN_MEMBER_SEL_RESULT>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Razor 스타일로 새글 등록", "Create")
+</p>
+
+<p>
+    @Html.ActionLink("Plain form 스타일로 새글 등록", "Create_Plain")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADM_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADM_PASS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADM_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADM_DEPT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PHONE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MOBILE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADM_ROLE_GRADE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MEMO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INS_DATE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADM_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADM_PASS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADM_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADM_DEPT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PHONE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MOBILE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADM_ROLE_GRADE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MEMO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INS_DATE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
+
+<!--
+<br />
+@Request.Url.AbsoluteUri
+<br />
+@Request.RawUrl
+<br />
+@Request.Url.OriginalString
+<br />
+@Request.Url.ToString()
+<br />
+@HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
+<br />
+@Request.Url.LocalPath
+<br />
+-->
+
+<br />
+@{Html.RenderAction("Paging", "CommonChildAction", new { TotalRecord = ViewBag.TotalRecord, RecordPerPage = ViewBag.PageSize, PagePerBlock = 10, CurrentPage = ViewBag.Page, QueryStr = "SearchCol=" + ViewBag.SearchCol + "&SearchKeyword=" + ViewBag.SearchKeyword + "&SortCol=" + ViewBag.SortCol + "&SortDir=" + ViewBag.SortDir });}
+
+<br />
+<br />

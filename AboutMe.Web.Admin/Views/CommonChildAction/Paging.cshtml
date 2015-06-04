@@ -1,0 +1,60 @@
+﻿
+@*@model IEnumerable<MvcCsBoard.Controllers.PagingValue>*@
+
+@model AboutMe.Common.Data.PagingProps
+
+<ul id="categories">
+    @*@foreach (var itm in Model)
+        {
+            <li>
+
+                @Html.DisplayFor(modelItem => itm.total_cnt)
+
+            </li>
+        }*@
+
+
+</ul>
+
+@Request.Url.LocalPath
+<br />
+@{
+    //string pg_str = "" ;
+    //pg_str = Request.Url.LocalPath + "?" + "page=zzz&page_size=" + Model.page_size;
+}
+
+@if (Model.HasPreviousBlock)
+{
+   <a href="@(Html.Raw(Request.Url.LocalPath + "?" + "page=" + Model.GoPageOfPrevBlock + "&" + Model.QStr))">[PREV]</a>
+}
+else
+{
+    <a href="#">[PREV]</a>
+}
+
+@for (var i = Model.StartPage; i <= Model.EndPage; i++)
+{
+    if (i == Model.CurrentPage)
+    {
+        @*<a href="@Url.Action(Request.Url.LocalPath, new { page = i, page_size = Model.page_size })"class="">*@
+        <a href="@(Html.Raw(Request.Url.LocalPath + "?" + "page=" + i + "&" + Model.QStr))">[@i]</a>
+    }
+    else
+    {
+        @*<a href="@Url.Action(Request.Url.LocalPath, new { page = i, page_size = Model.page_size })" class="btn btn-default">*@
+        <a href="@(Html.Raw(Request.Url.LocalPath + "?" + "page=" + i + "&" + Model.QStr))" class="btn btn-default">
+            [@i]
+        </a>
+
+
+    }
+}
+
+@if (Model.HasNextBlock)
+{
+    <a href="@(Html.Raw(Request.Url.LocalPath + "?" + "page=" + Model.GoPageOfNextBlock + "&" + Model.QStr))">[NEXT]</a>
+}
+else
+{
+    <a href="#">[NEXT]</a>
+}
