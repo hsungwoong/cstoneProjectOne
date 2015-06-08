@@ -158,6 +158,8 @@
     <Compile Include="Service\AdminEtc\AdminEtcEntities_2.cs" />
     <Compile Include="Service\AdminEtc\AdminMemberService.cs" />
     <Compile Include="Service\AdminEtc\IAdminMemberService.cs" />
+    <Compile Include="Service\Product\AdminProductrService.cs" />
+    <Compile Include="Service\Product\IAdminProductService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entity\AdminOrder\" />
@@ -168,7 +170,6 @@
     <Folder Include="Service\Etc\" />
     <Folder Include="Service\Member\" />
     <Folder Include="Service\Order\" />
-    <Folder Include="Service\Product\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

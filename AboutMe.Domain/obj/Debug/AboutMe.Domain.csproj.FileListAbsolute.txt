@@ -73,6 +73,6 @@ C:\Users\woong\Source\Repos\cstoneProjectOne\AboutMe.Domain\bin\Debug\System.Web
 C:\Users\woong\Source\Repos\cstoneProjectOne\AboutMe.Domain\bin\Debug\System.Web.WebPages.xml
 C:\Users\woong\Source\Repos\cstoneProjectOne\AboutMe.Domain\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\woong\Source\Repos\cstoneProjectOne\AboutMe.Domain\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\woong\Source\Repos\cstoneProjectOne\AboutMe.Domain\obj\Debug\AboutMe.Domain.csprojResolveAssemblyReference.cache
 C:\Users\woong\Source\Repos\cstoneProjectOne\AboutMe.Domain\obj\Debug\AboutMe.Domain.dll
 C:\Users\woong\Source\Repos\cstoneProjectOne\AboutMe.Domain\obj\Debug\AboutMe.Domain.pdb
+C:\Users\woong\Source\Repos\cstoneProjectOne\AboutMe.Domain\obj\Debug\AboutMe.Domain.csprojResolveAssemblyReference.cache

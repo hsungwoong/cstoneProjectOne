@@ -186,6 +186,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminMemberController.cs" />
+    <Compile Include="Controllers\AdminProductController.cs" />
     <Compile Include="Controllers\CommonChildActionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -257,6 +258,11 @@
     <Content Include="Views\AdminMember\Index.cshtml" />
     <Content Include="Views\CommonChildAction\Paging.cshtml" />
     <Content Include="Views\AdminMember\Create_Plain.cshtml" />
+    <Content Include="Views\AdminProduct\Index.cshtml" />
+    <Content Include="Views\AdminProduct\Insert.cshtml" />
+    <Content Include="Views\AdminProduct\View.cshtml" />
+    <Content Include="Views\AdminMember\View.cshtml" />
+    <Content Include="Views\AdminMember\ttt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

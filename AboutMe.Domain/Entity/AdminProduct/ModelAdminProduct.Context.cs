@@ -12,6 +12,8 @@ namespace AboutMe.Domain.Entity.AdminProduct
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class AdminProductEntities : DbContext
     {
@@ -26,5 +28,50 @@ namespace AboutMe.Domain.Entity.AdminProduct
         }
     
         public virtual DbSet<CATEGORY> CATEGORY { get; set; }
+    
+        public virtual int SP_ADM_CATEGORY_INS(string cATE_GBN, string cATE_CODE, Nullable<int> rE_SORT, string dEPTH1_CODE, string dEPTH1_NAME, string dEPTH1_IMG, string dEPTH2_CODE, string dEPTH2_NAME, string dEPTH_FLAG, string dISPLAY_YN)
+        {
+            var cATE_GBNParameter = cATE_GBN != null ?
+                new ObjectParameter("CATE_GBN", cATE_GBN) :
+                new ObjectParameter("CATE_GBN", typeof(string));
+    
+            var cATE_CODEParameter = cATE_CODE != null ?
+                new ObjectParameter("CATE_CODE", cATE_CODE) :
+                new ObjectParameter("CATE_CODE", typeof(string));
+    
+            var rE_SORTParameter = rE_SORT.HasValue ?
+                new ObjectParameter("RE_SORT", rE_SORT) :
+                new ObjectParameter("RE_SORT", typeof(int));
+    
+            var dEPTH1_CODEParameter = dEPTH1_CODE != null ?
+                new ObjectParameter("DEPTH1_CODE", dEPTH1_CODE) :
+                new ObjectParameter("DEPTH1_CODE", typeof(string));
+    
+            var dEPTH1_NAMEParameter = dEPTH1_NAME != null ?
+                new ObjectParameter("DEPTH1_NAME", dEPTH1_NAME) :
+                new ObjectParameter("DEPTH1_NAME", typeof(string));
+    
+            var dEPTH1_IMGParameter = dEPTH1_IMG != null ?
+                new ObjectParameter("DEPTH1_IMG", dEPTH1_IMG) :
+                new ObjectParameter("DEPTH1_IMG", typeof(string));
+    
+            var dEPTH2_CODEParameter = dEPTH2_CODE != null ?
+                new ObjectParameter("DEPTH2_CODE", dEPTH2_CODE) :
+                new ObjectParameter("DEPTH2_CODE", typeof(string));
+    
+            var dEPTH2_NAMEParameter = dEPTH2_NAME != null ?
+                new ObjectParameter("DEPTH2_NAME", dEPTH2_NAME) :
+                new ObjectParameter("DEPTH2_NAME", typeof(string));
+    
+            var dEPTH_FLAGParameter = dEPTH_FLAG != null ?
+                new ObjectParameter("DEPTH_FLAG", dEPTH_FLAG) :
+                new ObjectParameter("DEPTH_FLAG", typeof(string));
+    
+            var dISPLAY_YNParameter = dISPLAY_YN != null ?
+                new ObjectParameter("DISPLAY_YN", dISPLAY_YN) :
+                new ObjectParameter("DISPLAY_YN", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ADM_CATEGORY_INS", cATE_GBNParameter, cATE_CODEParameter, rE_SORTParameter, dEPTH1_CODEParameter, dEPTH1_NAMEParameter, dEPTH1_IMGParameter, dEPTH2_CODEParameter, dEPTH2_NAMEParameter, dEPTH_FLAGParameter, dISPLAY_YNParameter);
+        }
     }
 }

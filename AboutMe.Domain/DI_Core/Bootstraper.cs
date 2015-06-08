@@ -24,6 +24,7 @@ namespace AboutMe.Domain.DI_Core
             var container = new UnityContainer();
 
             container.RegisterType<AboutMe.Domain.Service.AdminEtc.IAdminMemberService, AboutMe.Domain.Service.AdminEtc.AdminMemberService>();
+            container.RegisterType<AboutMe.Domain.Service.Product.IAdminProductService, AboutMe.Domain.Service.Product.AdminProductrService>();
             //container.RegisterType<IController, StoreController>("Store");
 
             return container;

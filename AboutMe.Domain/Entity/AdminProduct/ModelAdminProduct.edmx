@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AboutMeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AboutMeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CATEGORY">
           <Key>
             <PropertyRef Name="IDX" />
@@ -23,11 +23,22 @@
           <Property Name="UPD_DATE" Type="datetime" />
           <Property Name="INS_DATE" Type="datetime" />
         </EntityType>
+        <Function Name="SP_ADM_CATEGORY_INS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CATE_GBN" Type="varchar" Mode="In" />
+          <Parameter Name="CATE_CODE" Type="char" Mode="In" />
+          <Parameter Name="RE_SORT" Type="int" Mode="In" />
+          <Parameter Name="DEPTH1_CODE" Type="char" Mode="In" />
+          <Parameter Name="DEPTH1_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DEPTH1_IMG" Type="varchar" Mode="In" />
+          <Parameter Name="DEPTH2_CODE" Type="char" Mode="In" />
+          <Parameter Name="DEPTH2_NAME" Type="varchar" Mode="In" />
+          <Parameter Name="DEPTH_FLAG" Type="varchar" Mode="In" />
+          <Parameter Name="DISPLAY_YN" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="AboutMeModelStoreContainer">
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AboutMeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -51,6 +62,18 @@
         </EntityType>
         <EntityContainer Name="AdminProductEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" />
+          <FunctionImport Name="SP_ADM_CATEGORY_INS">
+            <Parameter Name="CATE_GBN" Mode="In" Type="String" />
+            <Parameter Name="CATE_CODE" Mode="In" Type="String" />
+            <Parameter Name="RE_SORT" Mode="In" Type="Int32" />
+            <Parameter Name="DEPTH1_CODE" Mode="In" Type="String" />
+            <Parameter Name="DEPTH1_NAME" Mode="In" Type="String" />
+            <Parameter Name="DEPTH1_IMG" Mode="In" Type="String" />
+            <Parameter Name="DEPTH2_CODE" Mode="In" Type="String" />
+            <Parameter Name="DEPTH2_NAME" Mode="In" Type="String" />
+            <Parameter Name="DEPTH_FLAG" Mode="In" Type="String" />
+            <Parameter Name="DISPLAY_YN" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -77,6 +100,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_ADM_CATEGORY_INS" FunctionName="AboutMeModel.Store.SP_ADM_CATEGORY_INS" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

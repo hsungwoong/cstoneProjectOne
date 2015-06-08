@@ -74,6 +74,12 @@ namespace AboutMe.Web.Admin.Controllers
             //return View(Index("" ,"", "","", 1, 10));
         }
 
+
+        public ActionResult ttt()
+        {
+            return View();
+        }
+
         
     }
 }
